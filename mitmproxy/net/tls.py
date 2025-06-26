@@ -18,8 +18,8 @@ class Method(Enum):
     TLS_SERVER_METHOD = SSL.TLS_SERVER_METHOD
     TLS_CLIENT_METHOD = SSL.TLS_CLIENT_METHOD
     # Type-pyopenssl does not know about these DTLS constants.
-    DTLS_SERVER_METHOD = SSL.DTLS_SERVER_METHOD   # type: ignore
-    DTLS_CLIENT_METHOD = SSL.DTLS_CLIENT_METHOD   # type: ignore
+    DTLS_SERVER_METHOD = getattr(SSL, "DTLS_SERVER_METHOD", None)
+    DTLS_CLIENT_METHOD = getattr(SSL, "DTLS_CLIENT_METHOD", None)
 
 
 try:
